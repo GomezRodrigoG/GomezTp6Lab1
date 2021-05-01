@@ -60,17 +60,17 @@ public class Directorio {
     
     // borrarCliente() que en base a un dni
     // elimina el cliente del directorio.
-    public boolean borrarCliente(int dni){
+    public TreeMap<String,Cliente> borrarCliente(int dni){
+        TreeMap<String,Cliente> toRet = new TreeMap<String, Cliente>();
         for(String tel:clientes.keySet()){
             Cliente auxClient = clientes.get(tel);
             
             if(auxClient.getDni() == dni){
-                clientes.remove(tel);
-                return true;
+                toRet.put(tel, clientes.remove(tel));
             };
         }
         
-        return false;
+        return toRet;
     }
     
 }
